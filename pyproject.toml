@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lxf-cli"
+version = "0.1.0"
+description = "lxf 本地 AI CLI 工具集：音视频转字幕等"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "liuxiangfeng" }]
+keywords = ["asr", "subtitle", "cli", "offline"]
+
+# 核心依赖（默认全部安装）
+dependencies = [
+    "click>=8.0",
+    "numpy",
+]
+
+[project.optional-dependencies]
+# 安装 ASR 转写引擎所需依赖
+asr = [
+    "sherpa-onnx>=1.10",
+]
+
+# 每个子命令所需的额外依赖按需安装，例如未来新增"热词纠错"等
+
+[project.scripts]
+lxf-cli = "lxf_cli.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+lxf_cli = ["**/*.md"]

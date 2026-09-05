@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+build/
+dist/
+.venv/
+venv/
+
+# 模型文件较大，不入库（用 LFS 或手动分发）
+models/
+*.onnx
+
+# 输出产物
+output/
+
+# macOS
+.DS_Store
+
+# 环境/密钥
+.env
+*.local
